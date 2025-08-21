@@ -77,13 +77,14 @@ const ThemeSwitcher = () => {
   );
 };
 
-export default function Footer({ copyrightText }) {
+export default function Footer({ copyrightText, contactEmail }) {
   return (
     <footer className="flex flex-col items-center py-16">
-      <p className="mb-3 font-bold uppercase dark:text-white opacity-60">
-        {copyrightText}
-      </p>
-      <ThemeSwitcher />
+      <div className="text-center">
+        <p className="text-sm text-gray-500 dark:text-gray-400">
+          © Nolon
+        </p>
+      </div>
     </footer>
   );
 }

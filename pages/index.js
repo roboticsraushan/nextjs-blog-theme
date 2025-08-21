@@ -1,60 +1,40 @@
-import Link from 'next/link';
-import { getPosts } from '../utils/mdx-utils';
-
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Layout, { GradientBackground } from '../components/Layout';
-import ArrowIcon from '../components/ArrowIcon';
+import Team from '../components/Team';
+import Contact from '../components/Contact';
 import { getGlobalData } from '../utils/global-data';
 import SEO from '../components/SEO';
 
-export default function Index({ posts, globalData }) {
+export default function Index({ globalData }) {
   return (
     <Layout>
       <SEO title={globalData.name} description={globalData.blogTitle} />
       <Header name={globalData.name} />
+      
       <main className="w-full">
-        <h1 className="mb-12 text-3xl text-center lg:text-5xl">
-          {globalData.blogTitle}
-        </h1>
-        <ul className="w-full">
-          {posts.map((post) => (
-            <li
-              key={post.filePath}
-              className="transition border border-b-0 bg-white/10 border-gray-800/10 md:first:rounded-t-lg md:last:rounded-b-lg backdrop-blur-lg dark:bg-black/30 hover:bg-white/20 dark:hover:bg-black/50 dark:border-white/10 last:border-b"
-              data-sb-object-id={`posts/${post.filePath}`}
-            >
-              <Link
-                as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}
-                href={`/posts/[slug]`}
-                className="block px-6 py-6 lg:py-10 lg:px-16 focus:outline-hidden focus:ring-4 focus:ring-primary/50"
-              >
-                {post.data.date && (
-                  <p
-                    className="mb-3 font-bold uppercase opacity-60"
-                    data-sb-field-path="date"
-                  >
-                    {post.data.date}
-                  </p>
-                )}
-                <h2 className="text-2xl md:text-3xl" data-sb-field-path="title">
-                  {post.data.title}
-                </h2>
-                {post.data.description && (
-                  <p
-                    className="mt-3 text-lg opacity-60"
-                    data-sb-field-path="description"
-                  >
-                    {post.data.description}
-                  </p>
-                )}
-                <ArrowIcon className="mt-4" />
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {/* Hero Section */}
+        <section className="py-12 text-center">
+          <div className="max-w-4xl mx-auto px-6">
+            <h1 className="mb-6 text-4xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              The Future is Physical
+            </h1>
+            
+            <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+              We're building the next generation of AI that doesn't just think—it acts, moves, and interacts with the physical world around us.
+            </p>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <Contact email={globalData.contactEmail} />
+
+        {/* Team Section */}
+        <Team />
+        
       </main>
-      <Footer copyrightText={globalData.footerText} />
+      
+      <Footer copyrightText={globalData.footerText} contactEmail={globalData.contactEmail} />
       <GradientBackground
         variant="large"
         className="fixed top-20 opacity-40 dark:opacity-60"
@@ -68,8 +48,7 @@ export default function Index({ posts, globalData }) {
 }
 
 export function getStaticProps() {
-  const posts = getPosts();
   const globalData = getGlobalData();
 
-  return { props: { posts, globalData } };
+  return { props: { globalData } };
 }

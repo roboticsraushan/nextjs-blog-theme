@@ -2,11 +2,19 @@ import Link from 'next/link';
 
 export default function Header({ name }) {
   return (
-    <header className="pt-20 pb-12">
-      <div className="block w-12 h-12 mx-auto mb-4 rounded-full bg-conic-180 from-gradient-3 from-0% to-gradient-4 to-100%" />
-      <p className="text-2xl text-center dark:text-white">
-        <Link href="/">{name}</Link>
-      </p>
+    <header className="pt-12 pb-8">
+      <div className="flex flex-col items-center">
+        
+        {/* Company Name */}
+        <h1 className="text-4xl font-bold text-center dark:text-white mb-2">
+          <Link href="/">{name}</Link>
+        </h1>
+        
+        {/* Tagline */}
+        <p className="text-lg text-center dark:text-gray-300 text-gray-600 max-w-2xl">
+          Pioneering the future of physical AI embodiments
+        </p>
+      </div>
     </header>
   );
 }
