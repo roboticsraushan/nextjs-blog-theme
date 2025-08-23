@@ -7,7 +7,7 @@ export default function Contact({ email }) {
         </h2>
         
         <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-          Interested in the future of physical AI? We'd love to hear from you.
+          Interested in the future of physical AI? We&apos;d love to hear from you.
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

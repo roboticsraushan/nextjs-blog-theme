@@ -1,3 +1,25 @@
 [build]
   command = "npm run build"
   publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[headers]]
+  for = "/_next/static/*"
+  values = {Cache-Control = "public, max-age=31536000, immutable"}
+
+[[redirects]]
+  from = "/_next/image"
+  query = {q = ":quality", url = ":url", w = ":width"}
+  status = 200
+  to = "/.netlify/images?url=:url&w=:width&q=:quality"
+
+[[redirects]]
+  from = "/_ipx/*"
+  query = {q = ":quality", url = ":url", w = ":width"}
+  status = 200
+  to = "/.netlify/images?url=:url&w=:width&q=:quality"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

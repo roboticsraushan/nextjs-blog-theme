@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { getTeamData } from '../utils/global-data';
 
 export default function Team() {
@@ -16,10 +17,12 @@ export default function Team() {
               {/* Profile Image */}
               <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center overflow-hidden">
                 {founder.image ? (
-                  <img 
+                  <Image 
                     src={founder.image} 
                     alt={founder.name}
-                    className="w-full h-full object-cover"
+                    width={128}
+                    height={128}
+                    className="w-full h-full object-cover rounded-full"
                   />
                 ) : (
                   <span className="text-4xl font-bold text-gray-500 dark:text-gray-400">

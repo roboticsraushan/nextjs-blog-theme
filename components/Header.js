@@ -12,7 +12,7 @@ export default function Header({ name }) {
         
         {/* Tagline */}
         <p className="text-lg text-center dark:text-gray-300 text-gray-600 max-w-2xl">
-          Pioneering the future of physical AI embodiments
+        Physical AI agent workforce
         </p>
       </div>
     </header>

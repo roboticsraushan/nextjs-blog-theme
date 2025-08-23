@@ -17,12 +17,18 @@ export default function Index({ globalData }) {
         <section className="py-12 text-center">
           <div className="max-w-4xl mx-auto px-6">
             <h1 className="mb-6 text-4xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-              The Future is Physical
+              We CLEAN so you can DREAM
             </h1>
-            
-            <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-              We're building the next generation of AI that doesn't just think—it acts, moves, and interacts with the physical world around us.
-            </p>
+
+            {/* Inspirational Quote */}
+            <div className="mb-8 p-6 rounded-xl border-l-4 border-blue-500">
+              <blockquote className="text-lg lg:text-xl italic text-gray-700 dark:text-gray-200 mb-3">
+                &ldquo;I want AI to do my laundry and dishes so that I can do art and writing. Not the other way around&rdquo;
+              </blockquote>
+              <cite className="text-sm text-gray-600 dark:text-gray-400">
+                — Joanna Maciejewska, Author & gaming enthusiast
+              </cite>
+            </div>
           </div>
         </section>
 
